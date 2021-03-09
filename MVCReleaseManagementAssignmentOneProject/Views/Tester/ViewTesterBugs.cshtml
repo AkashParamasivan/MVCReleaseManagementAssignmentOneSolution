@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MVCReleaseManagementAssignmentOneProject.Models.BugsDetails>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewTesterBugs</title>
+</head>
+<body>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BugId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BugStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TesterId)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BugId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BugStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModuleId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TesterId)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+    <br />
+    <div>
+        @Html.ActionLink("Go Back to Menu", "TesterNavigate")
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MVCReleaseManagementAssignmentOneProject.Models.ModuleDetails>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewStatus</title>
+</head>
+<body>
+
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleStatus)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModuleId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModuleStatus)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+    <div id="navlink">
+        @Html.ActionLink("Go Back to Menu", "TeamleadNavigate")
+    </div>
+</body>
+</html>

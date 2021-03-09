@@ -1,0 +1,75 @@
+﻿@model MVCReleaseManagementAssignmentOneProject.Models.ModuleDetails
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add Module and Assign</title>
+    <link href="~/Content/AddToMosuleStyle.css" rel="stylesheet" />
+</head>
+<body>
+    @using (Html.BeginForm()) 
+    {
+        @Html.AntiForgeryToken()
+        
+    <div class="addModuleBox">
+        <h2 id="heading">Add Module and Assign</h2>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+           
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ModuleId, new { htmlAttributes = new { @class = "form-control",@placeholder="Enter Module ID" } })
+                @Html.ValidationMessageFor(model => model.ModuleId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+     
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ModuleStatus, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Module Status" } })
+                @Html.ValidationMessageFor(model => model.ModuleStatus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProjectId, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Project ID" } })
+                @Html.ValidationMessageFor(model => model.ProjectId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+        
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DeveloperId, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Developer ID" } })
+                @Html.ValidationMessageFor(model => model.DeveloperId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+  
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TesterId, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Tester ID" } })
+                @Html.ValidationMessageFor(model => model.TesterId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add Module and Assign" class="btn btn-default" id="addModuleButton"/>
+            </div>
+        </div>
+        <br />
+        <div id="navlink">
+            @Html.ActionLink("Go Back to Menu", "TeamleadNavigate")
+        </div>
+        <br />
+        <div id="errorMessage">
+            @ViewBag.message
+        </div>
+    </div>
+    }
+    
+</body>
+</html>

@@ -1,0 +1,57 @@
+﻿@model MVCReleaseManagementAssignmentOneProject.Models.CompletedProjects
+
+<link href="~/Content/ApproveProjectStyle.css" rel="stylesheet" />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="approveProjectBox">
+    <h2 id="heading">Approve Project</h2>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.DropDownListFor(m => m.ProjectApprovalId, ViewBag.ddl as SelectList, "Select Project Approval Id")
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Get Values" class="approveProjectButton" />
+        </div>
+    </div>
+    <br />
+    <br />
+    <div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProjectId, htmlAttributes: new { @class = "control-label col-md-2" }) :
+
+            @ViewBag.MessageOne
+            <br />
+            <br />
+
+
+
+            @Html.EditorFor(model => model.ProjectApprovalStatus, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Approval Status" } })
+            @Html.ValidationMessageFor(model => model.ProjectApprovalStatus, "", new { @class = "text-danger" })
+            <br />
+            <br />
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit" class="approveProjectButton" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div id="navlink">
+        @Html.ActionLink("Go Back to Menu", "Navigate")
+    </div>
+    <br />
+    <div id="errorMessage">
+        @ViewBag.ErrorMessage
+    </div>
+</div>
+}
+
+
+

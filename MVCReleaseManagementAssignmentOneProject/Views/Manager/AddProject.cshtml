@@ -1,0 +1,94 @@
+﻿@model MVCReleaseManagementAssignmentOneProject.Models.ProjectDetails
+
+<link href="~/Content/AddProjectStyle.css" rel="stylesheet" />
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="addProjectBox">
+    <h2 id="heading">Add Project</h2>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProjectId, new { htmlAttributes = new { @class = "form-control" ,@placeholder = "Enter Project ID"} })
+            @Html.ValidationMessageFor(model => model.ProjectId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+  
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProjectName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Project Name" } })
+            @Html.ValidationMessageFor(model => model.ProjectName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+       
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProjectRequirements, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Project Requirements" } })
+            @Html.ValidationMessageFor(model => model.ProjectRequirements, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ExpectedStartDate, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Expected Start Date" } })
+            @Html.ValidationMessageFor(model => model.ExpectedStartDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ExpectedEndDate, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Epected End Date" } })
+            @Html.ValidationMessageFor(model => model.ExpectedEndDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+       
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ActualStartDate, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Actual Start Date" } })
+            @Html.ValidationMessageFor(model => model.ActualStartDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+     
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ActualEndDate, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Actual End Date" } })
+            @Html.ValidationMessageFor(model => model.ActualEndDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+       
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProjectStatus, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Project Status" } })
+            @Html.ValidationMessageFor(model => model.ProjectStatus, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Add Project" class="btn btn-default" id="addProjectButton" />
+        </div>
+    </div>
+    <br />
+    <div id="navlink">
+        @Html.ActionLink("Go Back to Menu", "Navigate")
+    </div>
+    <br />
+    <div id="errorMessage">
+        @ViewBag.Message
+    </div>
+</div>
+}
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

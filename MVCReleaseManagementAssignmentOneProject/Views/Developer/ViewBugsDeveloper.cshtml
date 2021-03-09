@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MVCReleaseManagementAssignmentOneProject.Models.BugsDetails>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewBugsDeveloper</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BugId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeveloperId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TesterId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BugStatus)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModuleId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BugId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeveloperId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TesterId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BugStatus)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+    <div id="navlink">
+        @Html.ActionLink("Go Back to Menu", "DeveloperNavigate")
+    </div>
+</body>
+</html>
